@@ -1,0 +1,15 @@
+Code Smells:
+
+1) Feature Envy: 
+	Los metodos poner y sacar creaban un movimiento y desde este movimiento le mandaban un 
+	mensaje para que se agregue el mismo a la lista de movimientos de la cuenta.
+	El movimiento no tiene por que tomar el control de agregarse a la cuenta y mucho menos
+	de calcular el saldo final. Esto es responsabilidad de la cuenta.
+
+2) Duplicated Code:
+    En el metodo de Cuenta getMontoExtraidoA se estaba repitiendo el codigo para verificar si una
+    fecha de un movimiento es igual a la fecha que se pasa por parametro cuando ya existe un metodo
+    que calcula esto.
+    Además el metodo de Movimiento isExtraccion no es necesario tenerlo ya que ya existe el getter
+    de "esDeposito" que devuelve que NO si es una extracción.
+
